@@ -57,7 +57,7 @@ class Light extends React.Component {
     componentDidMount() {
       setInterval(() => { 
         this.handeLightChange();
-      }, 2000)
+      }, 10000)
     }
 
   render() {
