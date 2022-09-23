@@ -34,6 +34,7 @@ class Light extends React.Component {
             green: colors.grey,
             next: 'green'
           });
+          this.waitRedInterval();
           break;
         case "yellow":
           this.setState({
@@ -42,6 +43,7 @@ class Light extends React.Component {
             green: colors.grey,
             next: 'red'
           });
+          this.waitYellowtInterval();
           break;
         case "green":
           this.setState({
@@ -50,15 +52,24 @@ class Light extends React.Component {
             green: colors.green,
             next: 'yellow'
           });
+          this.waitGreenInterval();
           break;
       }
     }
 
+    waitRedInterval() {
+      setTimeout(this.handeLightChange, 4500);
+    }
+  
+    waitYellowtInterval() {
+      setTimeout(this.handeLightChange, 1500);
+    }
 
+    waitGreenInterval() {
+      setTimeout(this.handeLightChange, 3000)
+    }
     componentDidMount() {
-      setInterval(() => { 
-        this.handeLightChange();
-      }, 2000)
+      this.waitRedInterval();
     }
 
     
