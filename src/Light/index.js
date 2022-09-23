@@ -22,16 +22,16 @@ class Light extends React.Component {
       red: colors.red,
       yellow: colors.grey,
       green: colors.grey,
-      next: 'yellow'
+      next: 'green'
     }
 
     handeLightChange = () => {
       switch (this.state.next) {
         case "red":
           this.setState({
-            red: colors.grey,
+            red: colors.red,
             yellow: colors.grey,
-            green: colors.green,
+            green: colors.grey,
             next: 'green'
           });
           break;
@@ -45,28 +45,31 @@ class Light extends React.Component {
           break;
         case "green":
           this.setState({
-            red: colors.red,
+            red: colors.grey,
             yellow: colors.grey,
-            green: colors.grey,
+            green: colors.green,
             next: 'yellow'
           });
           break;
       }
     }
 
+
     componentDidMount() {
       setInterval(() => { 
         this.handeLightChange();
-      }, 10000)
+      }, 2000)
     }
+
+    
 
   render() {
     return (
-      <div class="light">
-        <Circle color={this.state.red}/>
-        <Circle color={this.state.yellow}/>
-        <Circle color={this.state.green}/>
-      </div>
+      <><div class="light">
+        <Circle color={this.state.red} />
+        <Circle color={this.state.yellow} />
+        <Circle color={this.state.green} />
+      </div></>
     )
   }
 }
